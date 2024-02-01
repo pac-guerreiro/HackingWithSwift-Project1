@@ -24,6 +24,8 @@ class ViewController: UITableViewController {
             }
         }
         
+        pictures.sort()
+        
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
@@ -42,6 +44,8 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // 2: success! Set its selectedImage property
             vc.selectedImage = pictures[indexPath.row]
+            vc.pictureIndex = indexPath.row
+            vc.pictureCount = pictures.count
 
             // 3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)

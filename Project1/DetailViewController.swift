@@ -10,10 +10,12 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     var selectedImage: String?
+    var pictureCount: Int = 0
+    var pictureIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = selectedImage
+        title = "Picture \(pictureIndex + 1) of \(pictureCount)"
 
         if let imageToLoad = selectedImage {
             imageView.image  = UIImage(named: imageToLoad)
